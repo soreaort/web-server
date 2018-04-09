@@ -8,11 +8,8 @@ package 'httpd' do
    action :install
 end
 
-file '/var/www/html/index.html' do
-   content "<h1>Hello world from chef</h1>
-   <b>HOSTNAME: </b>  #{node['hostname']}
-   <b>IPADDRESS: </b> #{node['ipaddress']}
-"
+template '/var/www/html/index.html' do
+   source "index.html.erb"
    action :create
 end
 
