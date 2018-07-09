@@ -4,6 +4,9 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 #
+
+package 'lsof'
+
 package 'httpd' do
    action :install
 end
@@ -51,5 +54,5 @@ template '/var/www/html/index.html' do
 end
 
 service 'httpd' do
-   action [ :enable, :start ]
+   action [ :start, :enable ]
 end
